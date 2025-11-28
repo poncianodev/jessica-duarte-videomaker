@@ -1,13 +1,16 @@
-import { motion } from 'motion/react';
-import { useInView } from './hooks/useInView';
-import { Camera, Film, Heart } from 'lucide-react';
-import jessicaAboutImage from 'figma:asset/c6f3603ea8f443d46cdef95a2df7abc2eb885e29.png';
+import { motion } from "motion/react";
+import { useInView } from "./hooks/useInView";
+import { Camera, Film, Heart } from "lucide-react";
+import jessicaAboutImage from "../assets/about-img.jpg";
 
 export function About() {
   const [ref, isInView] = useInView({ threshold: 0.3 });
 
   return (
-    <section ref={ref} className="py-20 md:py-32 bg-[#171617] text-white overflow-hidden">
+    <section
+      ref={ref}
+      className="py-20 md:py-32 bg-[#171617] text-white overflow-hidden"
+    >
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
@@ -24,7 +27,7 @@ export function About() {
             >
               Sobre mim
             </motion.p>
-            
+
             <motion.h2
               className="text-4xl md:text-6xl mb-6 italic"
               initial={{ opacity: 0, y: 20 }}
@@ -41,17 +44,20 @@ export function About() {
               transition={{ delay: 0.5, duration: 0.8 }}
             >
               <p>
-                Minha paixão por filmmaking vai além de apenas gravar momentos - é sobre capturar 
-                emoções, criar narrativas autênticas e eternizar memórias que você vai guardar para sempre.
+                Minha paixão por filmmaking vai além de apenas gravar momentos -
+                é sobre capturar emoções, criar narrativas autênticas e
+                eternizar memórias que você vai guardar para sempre.
               </p>
               <p>
-                Cada projeto recebe minha total atenção e dedicação. Trabalho com equipamentos 
-                profissionais e técnicas cinematográficas modernas para garantir que seu vídeo 
-                tenha a qualidade que você merece.
+                Cada projeto recebe minha total atenção e dedicação. Trabalho
+                com equipamentos profissionais e técnicas cinematográficas
+                modernas para garantir que seu vídeo tenha a qualidade que você
+                merece.
               </p>
               <p>
-                Não é apenas sobre o resultado final, mas sobre toda a experiência. Desde o primeiro 
-                contato até a entrega, você terá um atendimento personalizado e cuidadoso com cada detalhe.
+                Não é apenas sobre o resultado final, mas sobre toda a
+                experiência. Desde o primeiro contato até a entrega, você terá
+                um atendimento personalizado e cuidadoso com cada detalhe.
               </p>
             </motion.div>
 
@@ -63,16 +69,28 @@ export function About() {
               transition={{ delay: 0.7, duration: 0.8 }}
             >
               <div className="text-center">
-                <div className="text-3xl md:text-4xl mb-2 text-[#D4A574]">100%</div>
-                <div className="text-sm text-white/60 uppercase tracking-wider">Dedicação</div>
+                <div className="text-3xl md:text-4xl mb-2 text-[#D4A574]">
+                  100%
+                </div>
+                <div className="text-sm text-white/60 uppercase tracking-wider">
+                  Dedicação
+                </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl mb-2 text-[#D4A574]">4K</div>
-                <div className="text-sm text-white/60 uppercase tracking-wider">Qualidade</div>
+                <div className="text-3xl md:text-4xl mb-2 text-[#D4A574]">
+                  4K
+                </div>
+                <div className="text-sm text-white/60 uppercase tracking-wider">
+                  Qualidade
+                </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl mb-2 text-[#D4A574]">24/7</div>
-                <div className="text-sm text-white/60 uppercase tracking-wider">Suporte</div>
+                <div className="text-3xl md:text-4xl mb-2 text-[#D4A574]">
+                  24/7
+                </div>
+                <div className="text-sm text-white/60 uppercase tracking-wider">
+                  Suporte
+                </div>
               </div>
             </motion.div>
 

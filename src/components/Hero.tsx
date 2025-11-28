@@ -1,10 +1,13 @@
-import { motion } from 'motion/react';
-import { ChevronDown, Play } from 'lucide-react';
-import jessicaImage from 'figma:asset/91e8d4b1e42188e2e22bd890c424fb7b0727a043.png';
+import { motion } from "motion/react";
+import { ChevronDown, Play } from "lucide-react";
+import jessicaImage from "../assets/hero-img.jpg";
 
 export function Hero() {
   const handleCTA = () => {
-    window.open('https://wa.me/5511999999999?text=Olá%20Jéssica!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços%20de%20filmmaking.', '_blank');
+    window.open(
+      "https://wa.me/5511999999999?text=Olá%20Jéssica!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços%20de%20filmmaking.",
+      "_blank"
+    );
   };
 
   return (
@@ -50,7 +53,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             {/* Animated Logo/Name */}
-            <motion.div 
+            <motion.div
               className="mb-8"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -66,11 +69,13 @@ export function Hero() {
                 </motion.div>
                 <div className="text-left">
                   <h1 className="text-5xl md:text-7xl uppercase tracking-tight text-[#171617]">
-                    Jéssica<br/>Duarte
+                    Jéssica
+                    <br />
+                    Duarte
                   </h1>
                 </div>
               </div>
-              <motion.p 
+              <motion.p
                 className="text-xl md:text-2xl tracking-[0.3em] uppercase text-[#5C4033] mb-6"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -87,9 +92,9 @@ export function Hero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 1.1, duration: 0.8 }}
             >
-              Transformando momentos em histórias inesquecíveis através das lentes. 
-              Com paixão, criatividade e técnica, eternizo seus momentos mais especiais 
-              com a qualidade cinematográfica que você merece.
+              Transformando momentos em histórias inesquecíveis através das
+              lentes. Com paixão, criatividade e técnica, eternizo seus momentos
+              mais especiais com a qualidade cinematográfica que você merece.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -108,7 +113,11 @@ export function Hero() {
                 Solicitar Orçamento
               </motion.button>
               <motion.button
-                onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() =>
+                  document
+                    .getElementById("portfolio")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="border-2 border-[#171617] text-[#171617] px-8 py-4 rounded-full hover:bg-[#171617] hover:text-white transition-all duration-300 text-lg uppercase tracking-wider"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -124,7 +133,12 @@ export function Hero() {
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
+          transition={{
+            delay: 1.5,
+            duration: 0.8,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
         >
           <ChevronDown className="w-8 h-8 text-[#5C4033]" />
         </motion.div>
