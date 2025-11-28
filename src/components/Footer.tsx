@@ -3,20 +3,20 @@ import { motion } from 'motion/react';
 
 export function Footer() {
   return (
-    <footer className="bg-black text-white py-12">
+    <footer className="bg-[#171617] text-white py-12">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Logo & Tagline */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 border-2 border-white flex items-center justify-center">
-                <Play className="w-6 h-6 fill-white" />
+              <div className="w-12 h-12 border-2 border-[#D4A574] rounded-2xl flex items-center justify-center">
+                <Play className="w-6 h-6 fill-[#D4A574]" />
               </div>
               <div>
                 <div className="text-2xl uppercase tracking-tight">Jéssica Duarte</div>
               </div>
             </div>
-            <p className="text-gray-400 text-sm uppercase tracking-wider">
+            <p className="text-[#D4A574] text-sm uppercase tracking-wider">
               Filmmaker & Storyteller
             </p>
           </div>
@@ -24,11 +24,11 @@ export function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="uppercase tracking-wider mb-4">Navegação</h4>
-            <ul className="space-y-2 text-gray-400">
+            <ul className="space-y-2 text-white/70">
               <li>
                 <button
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                  className="hover:text-white transition-colors duration-300"
+                  className="hover:text-[#D4A574] transition-colors duration-300"
                 >
                   Início
                 </button>
@@ -36,7 +36,7 @@ export function Footer() {
               <li>
                 <button
                   onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="hover:text-white transition-colors duration-300"
+                  className="hover:text-[#D4A574] transition-colors duration-300"
                 >
                   Portfolio
                 </button>
@@ -44,7 +44,7 @@ export function Footer() {
               <li>
                 <button
                   onClick={() => window.open('https://wa.me/5511999999999', '_blank')}
-                  className="hover:text-white transition-colors duration-300"
+                  className="hover:text-[#D4A574] transition-colors duration-300"
                 >
                   Contato
                 </button>
@@ -57,10 +57,10 @@ export function Footer() {
             <h4 className="uppercase tracking-wider mb-4">Redes Sociais</h4>
             <div className="flex gap-4">
               <motion.a
-                href="https://instagram.com/jessicaduarte"
+                href="https://instagram.com/jessica.duartee09"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 border-2 border-white flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
+                className="w-12 h-12 border-2 border-white rounded-2xl flex items-center justify-center hover:bg-[#D4A574] hover:border-[#D4A574] transition-all duration-300"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -70,7 +70,7 @@ export function Footer() {
                 href="https://youtube.com/@jessicaduarte"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 border-2 border-white flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
+                className="w-12 h-12 border-2 border-white rounded-2xl flex items-center justify-center hover:bg-[#D4A574] hover:border-[#D4A574] transition-all duration-300"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -80,7 +80,7 @@ export function Footer() {
                 href="https://facebook.com/jessicaduarte"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 border-2 border-white flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
+                className="w-12 h-12 border-2 border-white rounded-2xl flex items-center justify-center hover:bg-[#D4A574] hover:border-[#D4A574] transition-all duration-300"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -91,7 +91,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white border-opacity-20 pt-8 text-center text-gray-400 text-sm">
+        <div className="border-t border-white/20 pt-8 text-center text-white/70 text-sm">
           <p>© 2025 Jéssica Duarte - Filmmaker. Todos os direitos reservados.</p>
           <p className="mt-2">Desenvolvido com paixão para criar histórias inesquecíveis</p>
         </div>

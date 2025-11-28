@@ -74,7 +74,7 @@ export function Pricing() {
           transition={{ duration: 0.8 }}
         >
           <motion.p
-            className="text-sm tracking-[0.3em] uppercase mb-4 text-gray-500"
+            className="text-sm tracking-[0.3em] uppercase mb-4 text-[#5C4033]"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -82,7 +82,7 @@ export function Pricing() {
             Investimentos
           </motion.p>
           <motion.h2
-            className="text-4xl md:text-6xl mb-4"
+            className="text-4xl md:text-6xl mb-4 text-[#171617]"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3, duration: 0.8 }}
@@ -110,27 +110,27 @@ export function Pricing() {
               transition={{ delay: 0.5 + index * 0.1, duration: 0.6 }}
             >
               {plan.highlight && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-black text-white px-6 py-2 text-sm uppercase tracking-wider z-10">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#5C4033] text-white px-6 py-2 rounded-full text-sm uppercase tracking-wider z-10">
                   Mais Popular
                 </div>
               )}
               <motion.div
-                className={`h-full border-2 p-8 ${
+                className={`h-full border-2 p-8 rounded-3xl ${
                   plan.highlight
-                    ? 'border-black bg-gray-50'
+                    ? 'border-[#5C4033] bg-[#5C4033]/5'
                     : 'border-gray-300 bg-white'
                 }`}
                 whileHover={{ scale: 1.03, y: -5 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="text-3xl uppercase tracking-wider mb-2">
+                <h3 className="text-3xl uppercase tracking-wider mb-2 text-[#171617]">
                   {plan.name}
                 </h3>
                 <p className="text-gray-600 mb-6 min-h-[48px]">{plan.description}</p>
                 
                 <div className="mb-8">
-                  <span className="text-sm">a partir de</span>
-                  <div className="flex items-start">
+                  <span className="text-sm text-[#5C4033]">a partir de</span>
+                  <div className="flex items-start text-[#171617]">
                     <span className="text-2xl mr-1">R$</span>
                     <span className="text-5xl md:text-6xl">{plan.price}</span>
                   </div>
@@ -145,7 +145,7 @@ export function Pricing() {
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ delay: 0.7 + featureIndex * 0.05, duration: 0.4 }}
                     >
-                      <Check className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#5C4033]" />
                       <span className="text-gray-700">{feature}</span>
                     </motion.li>
                   ))}
@@ -153,10 +153,10 @@ export function Pricing() {
 
                 <motion.button
                   onClick={() => handleContact(plan.name)}
-                  className={`w-full py-4 uppercase tracking-wider transition-all duration-300 ${
+                  className={`w-full py-4 rounded-full uppercase tracking-wider transition-all duration-300 ${
                     plan.highlight
-                      ? 'bg-black text-white hover:bg-gray-800'
-                      : 'border-2 border-black text-black hover:bg-black hover:text-white'
+                      ? 'bg-[#5C4033] text-white hover:bg-[#4A3329]'
+                      : 'border-2 border-[#171617] text-[#171617] hover:bg-[#171617] hover:text-white'
                   }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -175,8 +175,8 @@ export function Pricing() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 1, duration: 0.8 }}
         >
-          <div className="bg-gray-100 p-8 border-2 border-gray-300">
-            <h3 className="text-2xl uppercase tracking-wider mb-4">Condições de Pagamento</h3>
+          <div className="bg-[#F5F1ED] p-8 rounded-3xl border-2 border-[#5C4033]/20">
+            <h3 className="text-2xl uppercase tracking-wider mb-4 text-[#171617]">Condições de Pagamento</h3>
             <ul className="space-y-2 text-gray-700">
               <li>• 50% na confirmação do serviço</li>
               <li>• 50% na entrega do material final</li>
@@ -185,8 +185,8 @@ export function Pricing() {
             </ul>
           </div>
 
-          <div className="bg-gray-100 p-8 border-2 border-gray-300">
-            <h3 className="text-2xl uppercase tracking-wider mb-4">Observações</h3>
+          <div className="bg-[#F5F1ED] p-8 rounded-3xl border-2 border-[#5C4033]/20">
+            <h3 className="text-2xl uppercase tracking-wider mb-4 text-[#171617]">Observações</h3>
             <ul className="space-y-2 text-gray-700">
               <li>• Valores podem variar conforme localização</li>
               <li>• Orçamentos personalizados disponíveis</li>

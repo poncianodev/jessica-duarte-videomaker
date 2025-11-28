@@ -43,7 +43,7 @@ export function WhatsAppButton() {
           <AnimatePresence>
             {showTooltip && (
               <motion.div
-                className="absolute bottom-full right-0 mb-4 bg-white text-black p-4 rounded-lg shadow-xl max-w-xs"
+                className="absolute bottom-full right-0 mb-4 bg-white text-[#5C4033] p-4 rounded-2xl shadow-xl max-w-xs"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
@@ -51,7 +51,7 @@ export function WhatsAppButton() {
               >
                 <button
                   onClick={() => setShowTooltip(false)}
-                  className="absolute top-2 right-2 text-gray-400 hover:text-black"
+                  className="absolute top-2 right-2 text-gray-400 hover:text-[#5C4033]"
                 >
                   <X className="w-4 h-4" />
                 </button>

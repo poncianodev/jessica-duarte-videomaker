@@ -1,6 +1,7 @@
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { useInView } from './hooks/useInView';
-import { Star, Quote } from 'lucide-react';
+import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
 
 const testimonials = [
   {
@@ -31,9 +32,33 @@ const testimonials = [
 
 export function Testimonials() {
   const [ref, isInView] = useInView({ threshold: 0.2 });
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [dragDirection, setDragDirection] = useState(0);
+
+  const nextTestimonial = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const handleDragEnd = (event: any, info: any) => {
+    const threshold = 50;
+    
+    if (info.offset.x > threshold) {
+      // Arrastou para direita - volta
+      prevTestimonial();
+    } else if (info.offset.x < -threshold) {
+      // Arrastou para esquerda - avança
+      nextTestimonial();
+    }
+  };
+
+  const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section ref={ref} className="py-20 md:py-32 bg-black text-white">
+    <section ref={ref} className="py-20 md:py-32 bg-[#171617] text-white">
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -43,7 +68,7 @@ export function Testimonials() {
           transition={{ duration: 0.8 }}
         >
           <motion.p
-            className="text-sm tracking-[0.3em] uppercase mb-4 text-gray-400"
+            className="text-sm tracking-[0.3em] uppercase mb-4 text-[#D4A574]"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -59,7 +84,7 @@ export function Testimonials() {
             O Que Dizem Sobre<br/>Meu Trabalho
           </motion.h2>
           <motion.p
-            className="text-xl text-gray-400 max-w-2xl mx-auto italic"
+            className="text-xl text-white/70 max-w-2xl mx-auto italic"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -68,59 +93,102 @@ export function Testimonials() {
           </motion.p>
         </motion.div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              className="bg-white bg-opacity-5 p-8 border border-white border-opacity-10 relative"
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.5 + index * 0.1, duration: 0.6 }}
-              whileHover={{ scale: 1.02, borderColor: 'rgba(255, 255, 255, 0.3)' }}
-            >
-              {/* Quote Icon */}
+        {/* Carousel */}
+        <div className="max-w-4xl mx-auto">
+          <div className="relative">
+            <AnimatePresence mode="wait">
               <motion.div
-                className="absolute -top-4 left-8"
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: 1 } : {}}
-                transition={{ delay: 0.7 + index * 0.1, duration: 0.4 }}
+                key={currentIndex}
+                className="bg-white/5 p-12 md:p-16 rounded-3xl border border-white/10 relative min-h-[400px] flex flex-col justify-center cursor-grab active:cursor-grabbing"
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 0.5 }}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragEnd={handleDragEnd}
+                whileTap={{ cursor: "grabbing" }}
               >
-                <div className="bg-black p-2 border-2 border-white">
-                  <Quote className="w-6 h-6" />
+                {/* Quote Icon */}
+                <motion.div
+                  className="absolute -top-4 left-8"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.3, duration: 0.4 }}
+                >
+                  <div className="bg-[#D4A574] p-3 border-2 border-white rounded-xl">
+                    <Quote className="w-8 h-8" />
+                  </div>
+                </motion.div>
+
+                {/* Stars */}
+                <div className="flex gap-1 mb-6 justify-center">
+                  {[...Array(currentTestimonial.rating)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.4 + i * 0.1, duration: 0.3 }}
+                    >
+                      <Star className="w-6 h-6 fill-[#D4A574] text-[#D4A574]" />
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Text */}
+                <p className="text-gray-200 mb-8 italic text-xl md:text-2xl text-center leading-relaxed">
+                  "{currentTestimonial.text}"
+                </p>
+
+                {/* Author */}
+                <div className="border-t border-white/20 pt-6 text-center">
+                  <p className="text-xl uppercase tracking-wider mb-2">
+                    {currentTestimonial.name}
+                  </p>
+                  <p className="text-[#D4A574]">
+                    {currentTestimonial.event}
+                  </p>
                 </div>
               </motion.div>
+            </AnimatePresence>
 
-              {/* Stars */}
-              <div className="flex gap-1 mb-4 mt-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ delay: 0.8 + index * 0.1 + i * 0.05, duration: 0.3 }}
-                  >
-                    <Star className="w-5 h-5 fill-white" />
-                  </motion.div>
+            {/* Navigation Buttons */}
+            <div className="flex items-center justify-center gap-4 mt-8">
+              <motion.button
+                onClick={prevTestimonial}
+                className="w-12 h-12 rounded-full border-2 border-[#D4A574] flex items-center justify-center hover:bg-[#D4A574] transition-colors duration-300"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </motion.button>
+
+              {/* Dots Indicator */}
+              <div className="flex gap-2">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentIndex
+                        ? 'bg-[#D4A574] w-8'
+                        : 'bg-white/30 hover:bg-white/50'
+                    }`}
+                  />
                 ))}
               </div>
 
-              {/* Text */}
-              <p className="text-gray-300 mb-6 italic text-lg">
-                "{testimonial.text}"
-              </p>
-
-              {/* Author */}
-              <div className="border-t border-white border-opacity-20 pt-4">
-                <p className="uppercase tracking-wider mb-1">
-                  {testimonial.name}
-                </p>
-                <p className="text-sm text-gray-400">
-                  {testimonial.event}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+              <motion.button
+                onClick={nextTestimonial}
+                className="w-12 h-12 rounded-full border-2 border-[#D4A574] flex items-center justify-center hover:bg-[#D4A574] transition-colors duration-300"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <ChevronRight className="w-6 h-6" />
+              </motion.button>
+            </div>
+          </div>
         </div>
 
         {/* CTA */}
@@ -130,12 +198,12 @@ export function Testimonials() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 1, duration: 0.8 }}
         >
-          <p className="text-xl mb-6 text-gray-300">
+          <p className="text-xl mb-6 text-gray-200">
             Seja o próximo a ter uma experiência incrível!
           </p>
           <motion.button
             onClick={() => window.open('https://wa.me/5511999999999?text=Olá%20Jéssica!%20Vi%20os%20depoimentos%20e%20quero%20trabalhar%20com%20você.', '_blank')}
-            className="bg-white text-black px-8 py-4 hover:bg-gray-200 transition-colors duration-300 uppercase tracking-wider"
+            className="bg-[#D4A574] text-white px-8 py-4 rounded-full hover:bg-[#C4956A] transition-colors duration-300 uppercase tracking-wider"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

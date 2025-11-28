@@ -17,7 +17,7 @@ export function Contact() {
             transition={{ duration: 0.8 }}
           >
             <motion.p
-              className="text-sm tracking-[0.3em] uppercase mb-4 text-gray-500"
+              className="text-sm tracking-[0.3em] uppercase mb-4 text-[#5C4033]"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ delay: 0.2, duration: 0.8 }}
@@ -25,7 +25,7 @@ export function Contact() {
               Contato
             </motion.p>
             <motion.h2
-              className="text-4xl md:text-6xl mb-4"
+              className="text-4xl md:text-6xl mb-4 text-[#171617]"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3, duration: 0.8 }}
@@ -44,22 +44,22 @@ export function Contact() {
 
           {/* Main CTA */}
           <motion.div
-            className="bg-black text-white p-12 text-center mb-12"
+            className="bg-[#171617] text-white p-12 rounded-3xl text-center mb-12"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.5, duration: 0.6 }}
             whileHover={{ scale: 1.02 }}
           >
-            <MessageCircle className="w-16 h-16 mx-auto mb-6" />
+            <MessageCircle className="w-16 h-16 mx-auto mb-6 text-[#D4A574]" />
             <h3 className="text-3xl md:text-4xl mb-4 uppercase tracking-wider">
               Fale Comigo no WhatsApp
             </h3>
-            <p className="text-gray-300 mb-8 text-lg">
+            <p className="text-gray-200 mb-8 text-lg">
               Respondo rapidamente e estou sempre disponível para tirar suas dúvidas
             </p>
             <motion.button
               onClick={() => window.open('https://wa.me/5511999999999?text=Olá%20Jéssica!%20Vim%20do%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.', '_blank')}
-              className="bg-white text-black px-12 py-5 text-lg hover:bg-gray-200 transition-colors duration-300 uppercase tracking-wider inline-flex items-center gap-3"
+              className="bg-[#5C4033] text-white px-12 py-5 text-lg rounded-full hover:bg-[#4A3329] transition-colors duration-300 uppercase tracking-wider inline-flex items-center gap-3"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -76,39 +76,39 @@ export function Contact() {
             transition={{ delay: 0.7, duration: 0.8 }}
           >
             <motion.a
-              href="https://instagram.com/jessicaduarte"
+              href="https://instagram.com/jessica.duartee09"
               target="_blank"
               rel="noopener noreferrer"
-              className="border-2 border-black p-6 text-center hover:bg-black hover:text-white transition-all duration-300 group"
+              className="border-2 border-gray-300 p-6 rounded-3xl text-center hover:border-[#5C4033] hover:bg-[#5C4033]/5 transition-all duration-300 group"
               whileHover={{ scale: 1.05 }}
             >
-              <Instagram className="w-8 h-8 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
-              <h4 className="uppercase tracking-wider mb-2">Instagram</h4>
-              <p className="text-sm text-gray-600 group-hover:text-gray-300">
-                @jessicaduarte
+              <Instagram className="w-8 h-8 mx-auto mb-3 text-[#171617] group-hover:text-[#5C4033] group-hover:scale-110 transition-all duration-300" />
+              <h4 className="uppercase tracking-wider mb-2 text-[#171617]">Instagram</h4>
+              <p className="text-sm text-gray-600">
+                @jessica.duartee09
               </p>
             </motion.a>
 
             <motion.a
               href="mailto:contato@jessicaduarte.com"
-              className="border-2 border-black p-6 text-center hover:bg-black hover:text-white transition-all duration-300 group"
+              className="border-2 border-gray-300 p-6 rounded-3xl text-center hover:border-[#5C4033] hover:bg-[#5C4033]/5 transition-all duration-300 group"
               whileHover={{ scale: 1.05 }}
             >
-              <Mail className="w-8 h-8 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
-              <h4 className="uppercase tracking-wider mb-2">E-mail</h4>
-              <p className="text-sm text-gray-600 group-hover:text-gray-300">
+              <Mail className="w-8 h-8 mx-auto mb-3 text-[#171617] group-hover:text-[#5C4033] group-hover:scale-110 transition-all duration-300" />
+              <h4 className="uppercase tracking-wider mb-2 text-[#171617]">E-mail</h4>
+              <p className="text-sm text-gray-600">
                 contato@jessicaduarte.com
               </p>
             </motion.a>
 
             <motion.div
-              className="border-2 border-black p-6 text-center hover:bg-black hover:text-white transition-all duration-300 group"
+              className="border-2 border-gray-300 p-6 rounded-3xl text-center hover:border-[#5C4033] hover:bg-[#5C4033]/5 transition-all duration-300 group"
               whileHover={{ scale: 1.05 }}
             >
-              <MapPin className="w-8 h-8 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
-              <h4 className="uppercase tracking-wider mb-2">Localização</h4>
-              <p className="text-sm text-gray-600 group-hover:text-gray-300">
-                São Paulo, SP
+              <MapPin className="w-8 h-8 mx-auto mb-3 text-[#171617] group-hover:text-[#5C4033] group-hover:scale-110 transition-all duration-300" />
+              <h4 className="uppercase tracking-wider mb-2 text-[#171617]">Localização</h4>
+              <p className="text-sm text-gray-600">
+                Porto Ferreira, SP
               </p>
             </motion.div>
           </motion.div>

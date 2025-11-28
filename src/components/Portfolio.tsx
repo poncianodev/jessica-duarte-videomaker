@@ -45,7 +45,7 @@ export function Portfolio() {
           transition={{ duration: 0.8 }}
         >
           <motion.p
-            className="text-sm tracking-[0.3em] uppercase mb-4 text-gray-500"
+            className="text-sm tracking-[0.3em] uppercase mb-4 text-[#5C4033]"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -53,7 +53,7 @@ export function Portfolio() {
             Portfolio
           </motion.p>
           <motion.h2
-            className="text-4xl md:text-6xl mb-4"
+            className="text-4xl md:text-6xl mb-4 text-[#171617]"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3, duration: 0.8 }}
@@ -75,7 +75,7 @@ export function Portfolio() {
           {categories.map((category, index) => (
             <motion.div
               key={category.title}
-              className="relative group cursor-pointer overflow-hidden bg-black"
+              className="relative group cursor-pointer overflow-hidden bg-[#171617] rounded-3xl"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.5 + index * 0.1, duration: 0.6 }}
@@ -83,7 +83,7 @@ export function Portfolio() {
             >
               {/* Image */}
               <motion.div
-                className="relative h-96 overflow-hidden"
+                className="relative h-96 overflow-hidden rounded-3xl"
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.6 }}
               >
@@ -100,8 +100,8 @@ export function Portfolio() {
                   className="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   whileHover={{ scale: 1.2 }}
                 >
-                  <div className="w-16 h-16 rounded-full border-2 border-white flex items-center justify-center">
-                    <Play className="w-6 h-6 fill-white" />
+                  <div className="w-16 h-16 rounded-full border-2 border-[#5C4033] bg-[#5C4033]/20 flex items-center justify-center">
+                    <Play className="w-6 h-6 fill-[#5C4033]" />
                   </div>
                 </motion.div>
                 <h3 className="text-2xl md:text-3xl mb-2 uppercase tracking-wider">
@@ -113,7 +113,7 @@ export function Portfolio() {
               </div>
 
               {/* Decorative Border */}
-              <div className="absolute inset-0 border-4 border-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 m-4" />
+              <div className="absolute inset-0 border-4 border-[#5C4033] rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 m-4" />
             </motion.div>
           ))}
         </div>
@@ -127,7 +127,7 @@ export function Portfolio() {
         >
           <motion.button
             onClick={() => window.open('https://wa.me/5511999999999?text=Olá%20Jéssica!%20Gostaria%20de%20ver%20mais%20do%20seu%20portfólio.', '_blank')}
-            className="bg-black text-white px-8 py-4 hover:bg-gray-800 transition-colors duration-300 uppercase tracking-wider"
+            className="bg-[#5C4033] text-white px-8 py-4 rounded-full hover:bg-[#4A3329] transition-colors duration-300 uppercase tracking-wider"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
